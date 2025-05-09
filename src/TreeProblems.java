@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class TreeProblems {
 
@@ -130,7 +131,19 @@ public class TreeProblems {
    Hint: There's a simple way to do this!
   */
   public static int sumTree(Map<Integer, List<Integer>> tree) {
-    return -1;
+
+    if(tree == null) return 0;
+
+    int value = 0;
+
+    Set<Integer> key = tree.keySet();
+
+    for(int items: key)
+    {
+      value += items;
+    }
+
+    return value;
   }
 
   /*
