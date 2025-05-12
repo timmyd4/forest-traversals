@@ -208,7 +208,21 @@ public class TreeProblems {
    
   */
   public static <T> int maxDepth(Node<T> root) {
-    return -1;
+
+    if(root == null) return 0;
+
+    int max = 0;
+
+    for(Node<T> items: root.children)
+    {
+      int depth = maxDepth(items);
+      if(depth > max)
+      {
+        max = depth;
+      }
+    }
+
+    return max + 1;
   }
 
   /*
@@ -230,6 +244,23 @@ public class TreeProblems {
    Hint: Use findRoot to start. Then, make a recursive helper method.
   */
   public static int maxDepth(Map<String, List<String>> tree) {
+
+    if(tree == null) return 0;
+
+    
     return -1;
+  }
+
+
+  public static int getDepth(String node, Map<String, List<String>> tree)
+  {
+    if(!tree.containsKey(node) || tree.get(node).isEmpty()) return 1;
+
+    int max = 0;
+    for(String child: tree.get(node))
+    {
+      max = Math.max(max, getDepth(child, tree));
+    }
+    return 1 + max;
   }
 }
