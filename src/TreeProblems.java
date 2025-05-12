@@ -247,8 +247,8 @@ public class TreeProblems {
 
     if(tree == null) return 0;
 
-    
-    return -1;
+    String obj = findRoot(tree);
+    return getDepth(obj, tree);
   }
 
 
